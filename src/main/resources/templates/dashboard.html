@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormaFlux - File Converter</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>FormaFlux</h1>
+            
+            <div class="mode-switch">
+                <div class="mode-option active" id="mode-normal" onclick="setMode('normal')">Normal Conversion</div>
+                <div class="mode-option" id="mode-advanced" onclick="setMode('advanced')">Advanced Conversion</div>
+            </div>
+
+            <form id="conversion-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file-upload">Select XML File</label>
+                    <input type="file" id="file-upload" name="file" accept=".xml" required>
+                </div>
+
+                <div id="mapping-area">
+                    <h3>Field Mapping</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+                        Map source XML fields to target JSON keys. Leave target blank to keep original name.
+                    </p>
+                    <div id="mapping-container">
+                        <!-- Mappings will be injected here -->
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Convert & Download</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
