@@ -54,7 +54,7 @@ function renderMappings(fields) {
         div.innerHTML = `
             <div class="source-field">${field}</div>
             <span class="arrow">→</span>
-            <input type="text" class="target-field" name="map_${field}" placeholder="Target key (optional)">
+            <input type="text" class="target-field" name="map_${field}" value="${field}" placeholder="Target key">
         `;
         container.appendChild(div);
     });

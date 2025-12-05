@@ -56,4 +56,24 @@ class ConversionServiceTest {
         assertTrue(json.contains("\"userName\" : \"John\""));
         assertTrue(json.contains("\"userAge\" : \"30\""));
     }
+
+    @Test
+    void testStructuralTransformation() throws IOException {
+        String xmlContent = "<library><book id=\"bk101\"><title>Hitchhiker</title><author>Adams</author><genre>SciFi</genre></book>"
+                +
+                "<book id=\"bk102\"><title>1984</title><author>Orwell</author><genre>Dystopian</genre></book></library>";
+        MockMultipartFile file = new MockMultipartFile("file", "test.xml", "text/xml",
+                xmlContent.getBytes(StandardCharsets.UTF_8));
+
+        Map<String, String> mapping = new HashMap<>();
+        mapping.put("book[].title", "book[].bookdetails.title");
+        mapping.put("book[].author", "book[].bookdetails.author");
+        String mappingJson = new ObjectMapper().writeValueAsString(mapping);
+
+        String json = conversionService.convertFile(file, mappingJson);
+
+        assertTrue(json.contains("\"bookdetails\" : {"));
+        assertTrue(json.contains("\"title\" : \"Hitchhiker\""));
+        assertTrue(json.contains("\"author\" : \"Adams\""));
+    }
 }

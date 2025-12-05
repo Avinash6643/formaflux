@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
     <link rel="stylesheet" href="/css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <div class="card">
             <h1>FormaFlux</h1>
-            
+
             <div class="mode-switch">
                 <div class="mode-option active" id="mode-normal" onclick="setMode('normal')">Normal Conversion</div>
                 <div class="mode-option" id="mode-advanced" onclick="setMode('advanced')">Advanced Conversion</div>
@@ -26,7 +28,8 @@
                 <div id="mapping-area">
                     <h3>Field Mapping</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
-                        Map source XML fields to target JSON keys. Leave target blank to keep original name.
+                        Map source XML fields to target JSON keys. Use dot notation for nesting (e.g.,
+                        <code>book[].details.title</code>).
                     </p>
                     <div id="mapping-container">
                         <!-- Mappings will be injected here -->
@@ -40,4 +43,5 @@
 
     <script src="/js/app.js"></script>
 </body>
+
 </html>
