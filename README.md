@@ -2,6 +2,8 @@
 
 FormaFlux is a powerful and intuitive file conversion tool designed to transform XML data into structured JSON with ease. It goes beyond simple 1:1 conversion by offering advanced mapping capabilities, allowing users to restructure, rename, and nest fields dynamically.
 
+![FormaFlux Dashboard](screenshots/dashboard.png)
+
 ## ✨ Features
 
 - **Normal Conversion**: Instantly convert XML files to JSON with a direct mapping.
