@@ -76,7 +76,7 @@ public class ConversionService {
                 }
             }
         } else if (node.isArray()) {
-            if (node.size() > 0) {
+            if (!node.isEmpty()) {
                 // Process only the first element to get the schema
                 extractGenericFields(node.get(0), prefix + "[]", fields);
             }
